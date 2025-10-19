@@ -75,3 +75,10 @@ def add_relationship(conn, cursor, from_id, to_id, type_id):
     results = cursor.fetchall()
     headers = [description[0] for description in cursor.description]
     print(tabulate(results, headers=headers, tablefmt="psql"))
+
+
+def select(conn, cursor, dbname):
+    cursor.execute(f"SELECT * FROM {dbname};")
+    results = cursor.fetchall()
+    headers = [description[0] for description in cursor.description]
+    print(tabulate(results, headers=headers, tablefmt="psql"))
